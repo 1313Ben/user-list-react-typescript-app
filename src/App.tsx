@@ -3,22 +3,37 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>React with Typescript</h1>
+      <form action="">
+        <label htmlFor="userName">Name:</label>
+        <input
+          id="userName"
+          type="text"
+          name="name"
+          value=""
+        />
+
+        <label htmlFor="userAge">Name:</label>
+        <input
+          id="userAge"
+          type="number"
+          name="age"
+          value=""
+        />
+
+        <label htmlFor="userJob">Name:</label>
+        <input
+          id="userJob"
+          type="text"
+          name="job"
+          value=""
+        />
+
+        <button type="submit">Add user</button>
+      </form>
     </div>
   );
 }
