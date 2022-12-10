@@ -1,8 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
+
+  interface UserInt {
+    name: string,
+    age: string,
+    job: string
+  }
+
+  const [userState, setUserState] = useState<{ currentUser: UserInt }>({
+    currentUser: {
+      name: "",
+      age: "",
+      job:""
+    }
+  })
+
+
 
   return (
     <div className="container">
