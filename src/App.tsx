@@ -17,6 +17,15 @@ function App() {
     }
   })
 
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    console.log(e.target.value)
+    setUserState({
+      currentUser: {
+        ...userState.currentUser,
+        [e.target.name]: e.target.value
+      }
+    })
+  } 
 
 
   return (
@@ -28,23 +37,26 @@ function App() {
           id="userName"
           type="text"
           name="name"
-          value=""
+          value={userState.currentUser.name}
+          onChange={onChangeHandler}
         />
 
-        <label htmlFor="userAge">Name:</label>
+        <label htmlFor="userAge">Age:</label>
         <input
           id="userAge"
           type="number"
           name="age"
-          value=""
+          value={userState.currentUser.age}
+          onChange={onChangeHandler}
         />
 
-        <label htmlFor="userJob">Name:</label>
+        <label htmlFor="userJob">Job:</label>
         <input
           id="userJob"
           type="text"
           name="job"
-          value=""
+          value={userState.currentUser.job}
+          onChange={onChangeHandler}
         />
 
         <button type="submit">Add user</button>
