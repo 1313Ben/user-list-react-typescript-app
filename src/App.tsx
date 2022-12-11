@@ -9,29 +9,61 @@ function App() {
     job: string
   }
 
-  const [userState, setUserState] = useState<{ currentUser: UserInt }>({
+  interface AlluserInt {
+    currentUser: UserInt
+    allUsers: Array<UserInt>
+  }
+
+  const [userState, setUserState] = useState<AlluserInt>({
     currentUser: {
       name: "",
       age: "",
       job:""
-    }
+    },
+    allUsers: []
   })
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     console.log(e.target.value)
     setUserState({
+      ...userState,
       currentUser: {
         ...userState.currentUser,
         [e.target.name]: e.target.value
       }
     })
-  } 
+  }
+  
+  const submitForm = (e: React.SyntheticEvent): void => {
+    e.preventDefault()
 
+    setUserState({
+      currentUser: {
+        name: "",
+        age: "",
+        job: ""
+      },
+      allUsers: [
+        ...userState.allUsers,
+        userState.currentUser
+      ]
+    })
+  }
+
+  const allUsers = userState.allUsers.map((user, i) => {
+    return (
+      <div key={i}>
+        <h2>{user.name}</h2>
+        <h2>{user.age}</h2>
+        <h2>{ user.job}</h2>
+      </div>
+    )
+  })
 
   return (
     <div className="container">
       <h1>React with Typescript</h1>
-      <form action="">
+      <form onSubmit={submitForm}>
         <label htmlFor="userName">Name:</label>
         <input
           id="userName"
@@ -61,6 +93,7 @@ function App() {
 
         <button type="submit">Add user</button>
       </form>
+      {allUsers}
     </div>
   );
 }
