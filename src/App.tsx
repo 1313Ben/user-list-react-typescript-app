@@ -50,12 +50,24 @@ function App() {
     })
   }
 
+  const deleteHandler = (index: number): void => {
+    const filterUsers = userState.allUsers.filter((user, i) => {
+      return index !== i
+    })
+    
+    setUserState({
+      ...userState,
+      allUsers: filterUsers
+    })
+  }
+
   const allUsers = userState.allUsers.map((user, i) => {
     return (
       <div key={i}>
         <h2>{user.name}</h2>
         <h2>{user.age}</h2>
-        <h2>{ user.job}</h2>
+        <h2>{user.job}</h2>
+        <button onClick={() => deleteHandler(i)}>Delete User</button>
       </div>
     )
   })
