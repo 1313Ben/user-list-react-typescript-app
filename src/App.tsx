@@ -79,7 +79,7 @@ function App() {
   return (
     <div className="container">
       <h1>React with Typescript</h1>
-      <form onSubmit={submitForm}>
+      <form onSubmit={submitForm} className="card">
         <label htmlFor="userName">Name:</label>
         <input
           id="userName"
@@ -108,7 +108,7 @@ function App() {
           onChange={onChangeHandler}
         />
 
-        <button type="submit">Add user</button>
+        <button type="submit" className='submitBtn'>Add user</button>
       </form>
       {allUsers}
     </div>
