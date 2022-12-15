@@ -1,13 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import User,{UserInt} from './components/User'
 import './App.css';
 
 function App() {
-
-  interface UserInt {
-    name: string,
-    age: string,
-    job: string
-  }
 
   interface AlluserInt {
     currentUser: UserInt
@@ -18,7 +13,8 @@ function App() {
     currentUser: {
       name: "",
       age: "",
-      job:""
+      job: "",
+      deleteUser: () => {}
     },
     allUsers: []
   })
@@ -41,7 +37,8 @@ function App() {
       currentUser: {
         name: "",
         age: "",
-        job: ""
+        job: "",
+        deleteUser: () => {}
       },
       allUsers: [
         ...userState.allUsers,
@@ -63,12 +60,19 @@ function App() {
 
   const allUsers = userState.allUsers.map((user, i) => {
     return (
-      <div key={i}>
-        <h2>{user.name}</h2>
-        <h2>{user.age}</h2>
-        <h2>{user.job}</h2>
-        <button onClick={() => deleteHandler(i)}>Delete User</button>
-      </div>
+      // <div key={i}>
+      //   <h2>{user.name}</h2>
+      //   <h2>{user.age}</h2>
+      //   <h2>{user.job}</h2>
+      //   <button onClick={() => deleteHandler(i)}>Delete User</button>
+      // </div>
+      <User
+        key={i}
+        name={user.name}
+        age={user.age}
+        job={user.job}
+        deleteUser={() => deleteHandler(i)}
+      />
     )
   })
 
@@ -79,6 +83,7 @@ function App() {
         <label htmlFor="userName">Name:</label>
         <input
           id="userName"
+          required
           type="text"
           name="name"
           value={userState.currentUser.name}
