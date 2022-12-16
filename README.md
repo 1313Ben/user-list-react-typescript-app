@@ -1,4 +1,4 @@
-# React - Typscript exercise. Example of adding and delete user.
+# React - Typescript exercise.
 ![](App_demo.gif)
 
 ## Available Scripts
