@@ -1,6 +1,5 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React - Typscript exercise. Example of adding and delete user.
+![](App_demo.gif)
 
 ## Available Scripts
 
